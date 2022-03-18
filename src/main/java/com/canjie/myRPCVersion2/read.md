@@ -1,0 +1,22 @@
+上一版本我们只能调用一个服务(接口)的不同方法，但是正常情况下要调用不同服务的方法，
+这版本中在ServiceProvider中维护了一个Map，key为接口名，value为对应的接口实现。
+这要求服务在启动时要手动把实现类set进Map中。
+
+RPCServer是一个接口，定义了线程的start和stop，实现类为SimpleRPCServer和ThreadPoolRPCServer
+上一版本我们来一个Socket就开启一个线程去处理，就像SimpleRPCServer一样，所以这版本使用ThreadPoolRPCServer线程池的方法。
+WordThread是一个Runnable，线程池中调用这个方法，该方法中获取Request调用的接口名，然后在Provider中找到对应的实现类。
+
+
+同时，在客户端RPCClient中，我们发现一个Proxy是可以创建多个代理对象的。
+
+
+
+总结：
+在一版本中，我们重构了服务端的代码，代码更加简洁，
+
+添加线程池版的服务端的实现，性能应该会有所提升（未测）
+
+并且服务端终于能够提供不同服务了， 功能更加完善，不再鸡肋
+
+此RPC最大的痛点
+传统的BIO与线程池网络传输性能低

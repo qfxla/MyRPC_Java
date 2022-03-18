@@ -1,0 +1,12 @@
+package com.canjie.myRPCVersion0.service;
+
+import com.canjie.myRPCVersion0.common.User;
+
+/**
+ * @author zcj
+ * @creat 2022-03-16-16:38
+ */
+public interface UserService {
+    // 客户端通过这个接口调用服务端的实现类
+    User getUserByUserId(Integer id);
+}
