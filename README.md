@@ -12,6 +12,3 @@
 - [version4版本](#4.MyRPC版本4)：自定义消息格式，支持多种序列化方式（java原生， json…）
 - [version5版本](#5.MyRPC版本5):   服务器注册与发现的实现，zookeeper作为注册中心
 - [version6版本](#MyRPC版本6):   负载均衡的策略的实现
-- [version7版本](#7.MyRPC版本7):   客户端缓存服务地址列表, zookeeper监听服务提供者状态，更新客户端缓存**（待实现）**
-- [version8版本](#8.MyRPC版本8)： 跨语言的RPC通信（protobuf）**（待实现）**
-
